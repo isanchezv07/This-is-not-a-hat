@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import http from 'node:http';
-import { pathToFileURL } from 'node:url';
+
 import type { Socket } from 'socket.io';
 import { Server } from 'socket.io';
 import {
@@ -315,7 +315,8 @@ export function createGameServer(): GameServer {
 
 // Arranca solo cuando se ejecuta directamente (no al ser importado en tests).
 const isMain =
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+  process.argv[1] &&
+  (process.argv[1].endsWith('dist/index.js') || process.argv[1].endsWith('src/index.ts'));
 if (isMain) {
   const gs = createGameServer();
   gs.httpServer.listen(PORT, () => {

@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/game/cards.ts","./src/game/game.ts","./src/game/types.ts","./src/game/utils.ts","./src/rooms/rooms.ts","./src/socket/present.ts"],"version":"5.9.3"}

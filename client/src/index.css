@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink text-slate-100 font-body antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-display font-bold tracking-wide transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-ink hover:brightness-110 active:scale-95;
+  }
+  .btn-ghost {
+    @apply btn border border-line text-slate-200 hover:border-slate-400 hover:bg-surface active:scale-95;
+  }
+  .btn-danger {
+    @apply btn bg-coral text-ink hover:brightness-110 active:scale-95;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line bg-surface px-4 py-3 font-medium text-slate-100 placeholder:text-slate-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 transition;
+  }
+  .panel {
+    @apply rounded-2xl border border-line bg-panel p-5;
+  }
+  .card-back {
+    @apply rounded-xl border border-b-4 border-line bg-gradient-to-br from-surface to-panel;
+  }
+  .table-disc {
+    background:
+      radial-gradient(circle at 50% 38%, #232833 0%, #161a21 55%, #101218 100%);
+  }
+  .seat-ring {
+    box-shadow: 0 0 0 2px rgba(255, 180, 84, 0.55), 0 0 18px rgba(255, 180, 84, 0.35);
+  }
+  .seat-ghost {
+    @apply flex h-10 w-10 items-center justify-center rounded-full border bg-surface text-base font-bold;
+  }
+  .flip-card {
+    perspective: 1000px;
+  }
+  .flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0.1, 0.2, 1);
+  }
+  .flip-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+  .flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flip-front {
+    transform: rotateY(180deg);
+  }
+}

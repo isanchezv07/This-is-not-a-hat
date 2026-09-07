@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/createroom.tsx","./src/components/gameboard.tsx","./src/components/joinroom.tsx","./src/components/lobby.tsx","./src/components/menu.tsx","./src/components/victoryscreen.tsx","./src/game/cards.ts","./src/socket/usesocket.ts"],"version":"5.9.3"}

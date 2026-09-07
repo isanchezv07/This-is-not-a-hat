@@ -1,20 +1,25 @@
 {
-  "name": "this-is-not-a-hat",
+  "name": "this-is-not-a-hat-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multijugador en tiempo real de memoria y engaño - 'Esto no es un sombrero' (implementación original)",
   "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace client && npm run build --workspace server",
+    "start": "npm run start --workspace server",
+    "test": "npm run test --workspace server"
   },
-  "dependencies": {
-    "astro": "^7.3.1"
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   },
-  "allowScripts": {
-    "esbuild": true
+  "engines": {
+    "node": ">=22.0.0"
   }
 }
